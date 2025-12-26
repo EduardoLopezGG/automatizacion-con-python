@@ -1,11 +1,11 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modulos import inicializacion, generador_de_pdf
+from modules import beginning, generator_of_pdf
 
-doc = inicializacion.entrada()
+doc = beginning.start()
 
 formulario = {
-    "fecha" : inicializacion.fecha(),
+    "fecha" : beginning.auto_date(),
     "ciudad" : input("Ingrese la ciudad de la Sede: "),
     "autoridad" : input("Ingrese Nombre Completo y Profesion de la Autoridad: "),
     "cargo_autoridad" : input("Ingrese Cargo Administrativo de la Autoridad: "),
@@ -21,4 +21,4 @@ doc.save(f"Guardados/Carta de Renuncia de {formulario["nombre_trabajador"]}.docx
 nombre_de_archivo = f"Guardados/Carta de Renuncia de {formulario["nombre_trabajador"]}"
 titular = f"Carta de Renuncia de {formulario["nombre_trabajador"]}"
 
-generador_de_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(nombre_de_archivo, titular)

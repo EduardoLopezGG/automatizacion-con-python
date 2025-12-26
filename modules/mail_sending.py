@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from importaciones import sending_emails, data_env
-from modulos import generador_de_pdf
+from imports import sending_emails, data_env
+from modules import generator_of_pdf
 
 
 def enviar(archivo_a_adjuntar, titular):

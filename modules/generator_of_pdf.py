@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from importaciones import gen_pdf
-from modulos import envio_de_correo
+from imports import gen_pdf
+from modules import mail_sending
 
 def generar_pdf(nombre_de_archivo, titular):
     print("✅Perfecto! Formulario llenado correctamente!")
@@ -11,4 +11,4 @@ def generar_pdf(nombre_de_archivo, titular):
     print("✅Archivo Temporal Eliminado Correctamente!")
     archivo_a_adjuntar = nombre_de_archivo + ".pdf"
     print("✅listo! Archivo Generado Correctamente!")
-    envio_de_correo.enviar(archivo_a_adjuntar, titular)
+    mail_sending.enviar(archivo_a_adjuntar, titular)

@@ -1,11 +1,11 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modulos import inicializacion, generador_de_pdf
+from modules import beginning, generator_of_pdf
 
-doc = inicializacion.entrada()
+doc = beginning.start()
 
 formulario = {
-    "fecha" : inicializacion.fecha(),
+    "fecha" : beginning.auto_date(),
     "ciudad" : input("Ingrese la ciudad de la Sede: "),
     "profesional" : input("Ingrese Nombre completo y su profesion de la autoridad: "),
     "carrera_actual" : input("Ingrese la Carrera que está Estudiando: "),
@@ -20,4 +20,4 @@ doc.save(f"Guardados/Carta de Motivo por Cambio de Carrera de {formulario["nombr
 nombre_de_archivo = f"Guardados/Carta de Motivo por Cambio de Carrera de {formulario["nombre_estudiante"]}"
 titular = f"Carta de Motivo por Cambio de Carrera de {formulario["nombre_estudiante"]}"
 
-generador_de_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(nombre_de_archivo, titular)

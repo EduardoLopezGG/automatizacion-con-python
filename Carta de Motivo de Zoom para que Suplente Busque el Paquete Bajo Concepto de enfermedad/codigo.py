@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modulos import inicializacion, generador_de_pdf
+from modules import beginning, generator_of_pdf
 
-doc = inicializacion.entrada()
+doc = beginning.start()
 
 formulario = {
     "nombre_completo_original" : input("Ingrese el Nombre Completo del Propietario: "),
@@ -10,7 +10,7 @@ formulario = {
     "numero_de_tracking" : input("Ingrese el Numero de Guia: "),
     "telefono" : input("Ingrese el Numero de Telefono del Propietario: "),
     "email" : input("Ingrese su Correo Electronico: "),
-    "fecha" : inicializacion.fecha(),
+    "fecha" : beginning.auto_date(),
     "nombre_completo_del_suplente" : input("Ingrese el Nombre Completo del Suplente: "),
     "numero_de_documento_del_suplente" : input("Ingrese el Numero de Cedula del Suplente: "),
     "relacion" : input("Ingrese el Tipo de Relacion con el Suplente: "),
@@ -22,4 +22,4 @@ doc.save(f"Guardados/Carta de Motivo de {formulario['nombre_completo_original']}
 nombre_de_archivo = f"Guardados/Carta de Motivo de {formulario['nombre_completo_original']} y {formulario["nombre_completo_del_suplente"]} para Zoom"
 titular = f"Carta de Motivo de {formulario['nombre_completo_original']} y {formulario["nombre_completo_del_suplente"]} para Zoom"
 
-generador_de_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(nombre_de_archivo, titular)
