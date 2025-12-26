@@ -4,7 +4,7 @@ from modules import beginning, generator_of_pdf
 
 doc = beginning.start()
 
-formulario = {
+form = {
     "nombre_completo_original" : input("Ingrese el Nombre Completo del Propietario: "),
     "numero_de_documento" : input("Ingrese el Numero de Cedula del Propietario: "),
     "numero_de_tracking" : input("Ingrese el Numero de Guia: "),
@@ -17,9 +17,9 @@ formulario = {
     "telefono_del_suplente" : input("Ingrese el Telefono del Suplente: ")
 }
 
-doc.render(formulario)
-doc.save(f"Guardados/Carta de Motivo de {formulario['nombre_completo_original']} y {formulario["nombre_completo_del_suplente"]} para Zoom.docx")
-nombre_de_archivo = f"Guardados/Carta de Motivo de {formulario['nombre_completo_original']} y {formulario["nombre_completo_del_suplente"]} para Zoom"
-titular = f"Carta de Motivo de {formulario['nombre_completo_original']} y {formulario["nombre_completo_del_suplente"]} para Zoom"
+doc.render(form)
+doc.save(f"Guardados/Carta de Motivo de {form['nombre_completo_original']} y {form["nombre_completo_del_suplente"]} para Zoom.docx")
+filename = f"Guardados/Carta de Motivo de {form['nombre_completo_original']} y {form["nombre_completo_del_suplente"]} para Zoom"
+holder = f"Carta de Motivo de {form['nombre_completo_original']} y {form["nombre_completo_del_suplente"]} para Zoom"
 
-generator_of_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(filename, holder)

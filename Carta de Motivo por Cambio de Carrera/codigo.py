@@ -4,7 +4,7 @@ from modules import beginning, generator_of_pdf
 
 doc = beginning.start()
 
-formulario = {
+form = {
     "fecha" : beginning.auto_date(),
     "ciudad" : input("Ingrese la ciudad de la Sede: "),
     "profesional" : input("Ingrese Nombre completo y su profesion de la autoridad: "),
@@ -15,9 +15,9 @@ formulario = {
     "argumento" : input("Ingrese el argumento de su cambio (me interesa mas por...): ")
 }
 
-doc.render(formulario)
-doc.save(f"Guardados/Carta de Motivo por Cambio de Carrera de {formulario["nombre_estudiante"]}.docx")
-nombre_de_archivo = f"Guardados/Carta de Motivo por Cambio de Carrera de {formulario["nombre_estudiante"]}"
-titular = f"Carta de Motivo por Cambio de Carrera de {formulario["nombre_estudiante"]}"
+doc.render(form)
+doc.save(f"Guardados/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}.docx")
+filename = f"Guardados/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}"
+holder = f"Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}"
 
-generator_of_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(filename, holder)

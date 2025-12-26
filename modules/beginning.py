@@ -4,7 +4,7 @@ from imports import rendering_works, automatic_date_generator as date
 
 def start():
     print("===INICIANDO PROCESO DE LLENADO===")
-    doc = rendering_works.DocxTemplate("plantilla.docx") #Sujeto a Modulaciones
+    doc = rendering_works.DocxTemplate("plantilla.docx")
     return doc
 
 try:

@@ -4,7 +4,7 @@ from modules import beginning, generator_of_pdf
 
 doc = beginning.start()
 
-formulario = {
+form = {
     "fecha" : beginning.auto_date(),
     "ciudad" : input("Ingrese la ciudad de la Sede: "),
     "autoridad" : input("Ingrese Nombre Completo y Profesion de la Autoridad: "),
@@ -16,9 +16,9 @@ formulario = {
     "cedula_trabajador" : input("Ingrese el Numero de Cedula del Trabajador: ")
 }
 
-doc.render(formulario)
-doc.save(f"Guardados/Carta de Renuncia de {formulario["nombre_trabajador"]}.docx")
-nombre_de_archivo = f"Guardados/Carta de Renuncia de {formulario["nombre_trabajador"]}"
-titular = f"Carta de Renuncia de {formulario["nombre_trabajador"]}"
+doc.render(form)
+doc.save(f"Guardados/Carta de Renuncia de {form["nombre_trabajador"]}.docx")
+filename = f"Guardados/Carta de Renuncia de {form["nombre_trabajador"]}"
+holder = f"Carta de Renuncia de {form["nombre_trabajador"]}"
 
-generator_of_pdf.generar_pdf(nombre_de_archivo, titular)
+generator_of_pdf.generar_pdf(filename, holder)
