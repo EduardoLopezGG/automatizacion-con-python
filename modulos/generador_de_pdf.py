@@ -1,12 +1,12 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modulos import importaciones as i
+from importaciones import gen_pdf
 from modulos import envio_de_correo
 
 def generar_pdf(nombre_de_archivo, titular):
     print("✅Perfecto! Formulario llenado correctamente!")
     print("Iniciando Proceso de Conversion de Word a PDF")
-    i.convert(nombre_de_archivo + ".docx", nombre_de_archivo + ".pdf")
+    gen_pdf.convert(nombre_de_archivo + ".docx", nombre_de_archivo + ".pdf")
     os.remove(nombre_de_archivo + ".docx")
     print("✅Archivo Temporal Eliminado Correctamente!")
     archivo_a_adjuntar = nombre_de_archivo + ".pdf"

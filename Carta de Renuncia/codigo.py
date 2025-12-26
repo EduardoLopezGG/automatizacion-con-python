@@ -1,8 +1,6 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modulos import importaciones as i
-from modulos import inicializacion
-from modulos import generador_de_pdf
+from modulos import inicializacion, generador_de_pdf
 
 doc = inicializacion.entrada()
 
