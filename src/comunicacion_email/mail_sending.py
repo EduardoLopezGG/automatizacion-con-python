@@ -1,7 +1,9 @@
 import os, sys
+
+from src.comunicacion_email import sending_emails
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from imports import sending_emails, data_env
-from modules import generator_of_pdf
+from core import data_env
+from src.Documents import generator_of_pdf
 
 def enviar(attached_file, holder):
     data_env.load_dotenv()

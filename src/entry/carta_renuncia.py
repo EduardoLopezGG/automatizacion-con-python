@@ -1,11 +1,13 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from modules import beginning, generator_of_pdf
+from src.shared import automatic_date
+from src.entry import rendering_works
+from src.Documents import generator_of_pdf
 
-doc = beginning.start()
+doc = rendering_works.DocxTemplate("plantilla.docx")
 
 form = {
-    "fecha" : beginning.auto_date(),
+    "fecha" : automatic_date.auto_date(),
     "ciudad" : input("Ingrese la ciudad de la Sede: "),
     "autoridad" : input("Ingrese Nombre Completo y Profesion de la Autoridad: "),
     "cargo_autoridad" : input("Ingrese Cargo Administrativo de la Autoridad: "),
@@ -17,8 +19,8 @@ form = {
 }
 
 doc.render(form)
-doc.save(f"Guardados/Carta de Renuncia de {form["nombre_trabajador"]}.docx")
-filename = f"Guardados/Carta de Renuncia de {form["nombre_trabajador"]}"
+doc.save(f"../storage/Carta de Renuncia de {form["nombre_trabajador"]}.docx")
+filename = f"../storage/Carta de Renuncia de {form["nombre_trabajador"]}"
 holder = f"Carta de Renuncia de {form["nombre_trabajador"]}"
 
 generator_of_pdf.generar_pdf(filename, holder)

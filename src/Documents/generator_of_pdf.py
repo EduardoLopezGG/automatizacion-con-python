@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from imports import gen_pdf
-from modules import mail_sending
+from src.Documents import gen_pdf
+from src.comunicacion_email import mail_sending
 
 def generar_pdf(filename, holder):
     print("✅Perfecto! Formulario llenado correctamente!")

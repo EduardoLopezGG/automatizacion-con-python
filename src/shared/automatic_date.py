@@ -1,11 +1,6 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from imports import rendering_works, automatic_date_generator as date
-
-def start():
-    print("===INICIANDO PROCESO DE LLENADO===")
-    doc = rendering_works.DocxTemplate("plantilla.docx")
-    return doc
+from shared import automatic_date_generator as date
 
 try:
     # For Linux/Mac
