@@ -1,16 +1,16 @@
 import os, sys
-from src.comunication_with_email import sending_emails
+from comunication_with_email import sending_emails
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core import data_env
-from src.Documents import generator_of_pdf
+from Documents import generator_of_pdf
 
-def enviar(attached_file, holder):
+def send(attached_file, holder, addressee):
     data_env.load_dotenv()
     print("Cargando Procesos para Enviar")
     body = """
     Buenos dias, tardes o noches, aqui el trabajo que se me encomendó hacer:
     """
-    recipient_email = input("Ingresa el Email del Receptor: ")
+    recipient_email = addressee
     em = sending_emails.EmailMessage()
     em["From"] = os.getenv("email_emisor")
     em["To"] = recipient_email

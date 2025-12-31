@@ -17,5 +17,5 @@ except date.locale.Error:
             print("No se pudo configurar locale en español")
 
 def auto_date():
-    fecha = date.datetime.now().strftime("%d de %B de %Y")
-    return fecha
+    time = date.datetime.now().strftime("%d de %B de %Y")
+    return time
