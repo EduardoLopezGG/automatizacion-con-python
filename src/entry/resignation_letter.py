@@ -6,10 +6,10 @@ from Documents import generator_of_pdf
 def saveroom(form):
     rendering_works.pythoncom.CoInitialize()
     try:
-        doc = rendering_works.DocxTemplate("../../entry/templates/carta_renuncia.docx")
+        doc = rendering_works.DocxTemplate("src/entry/templates/carta_renuncia.docx")
         doc.render(form)
-        doc.save(f"../../../storage/Carta de Renuncia de {form["nombre_trabajador"]}.docx")
-        filename = f"../../../storage/Carta de Renuncia de {form["nombre_trabajador"]}"
+        doc.save(f"storage/Carta de Renuncia de {form["nombre_trabajador"]}.docx")
+        filename = f"storage/Carta de Renuncia de {form["nombre_trabajador"]}"
         holder = f"Carta de Renuncia de {form["nombre_trabajador"]}"
         addressee = form["destinatario"]
         generator_of_pdf.gen_pdf(filename, holder, addressee)

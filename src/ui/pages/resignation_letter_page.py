@@ -2,8 +2,11 @@ import streamlit as st, sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 import entry.resignation_letter as resignation_letter
 from shared import automatic_date
+from ui.components import nav_bar
 
-st.title("automatizador de archivos")
+nav_bar.nav()
+
+st.title("Carta de Renuncia")
 
 with st.form("formulario"):
     col1, col2 = st.columns(2)
@@ -19,21 +22,25 @@ with st.form("formulario"):
         current_personal_position = st.text_input("Ingrese el Cargo Actual del Trabajador: ")
         worker_id = st.text_input("Ingrese el Numero de Cedula del Trabajador: ")
 
-        
+    full_fields = city and position_of_authority and abbreviation and worker_name and addressee and authority and name_of_institution_or_company and current_personal_position and worker_id
+
     save_data = st.form_submit_button("enviar datos")
     
-
 if save_data:
-    form = {
-        "fecha" : automatic_date.auto_date(),
-        "ciudad" : city,
-        "autoridad" : authority,
-        "cargo_autoridad" : position_of_authority,
-        "nombre_institucion_compañia" : name_of_institution_or_company,
-        "abreviatura" : abbreviation,
-        "cargo_actual_personal" : current_personal_position,
-        "nombre_trabajador" : worker_name,
-        "cedula_trabajador" : worker_id,
-        "destinatario" : addressee
-    }
-    resignation_letter.saveroom(form)
+    if not full_fields:
+        st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el formulario completo.")
+    else:
+        st.success("Procesando...")
+        form = {
+            "fecha" : automatic_date.auto_date(),
+            "ciudad" : city,
+            "autoridad" : authority,
+            "cargo_autoridad" : position_of_authority,
+            "nombre_institucion_compañia" : name_of_institution_or_company,
+            "abreviatura" : abbreviation,
+            "cargo_actual_personal" : current_personal_position,
+            "nombre_trabajador" : worker_name,
+            "cedula_trabajador" : worker_id,
+            "destinatario" : addressee
+        }
+        resignation_letter.saveroom(form)

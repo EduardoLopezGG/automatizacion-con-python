@@ -7,10 +7,10 @@ def saveroom(form):
     # Inicializamos COM para este hilo de Streamlit
     rendering_works.pythoncom.CoInitialize()
     try:
-        doc = rendering_works.DocxTemplate("../../entry/templates/carta_cambio_carrera.docx")
+        doc = rendering_works.DocxTemplate("src/entry/templates/carta_cambio_carrera.docx")
         doc.render(form)
-        doc.save(f"../../../storage/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}.docx")
-        filename = f"../../../storage/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}"
+        doc.save(f"storage/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}.docx")
+        filename = f"storage/Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}"
         holder = f"Carta de Motivo por Cambio de Carrera de {form["nombre_estudiante"]}"
         addressee = form["destinatario"]
         generator_of_pdf.gen_pdf(filename, holder, addressee)

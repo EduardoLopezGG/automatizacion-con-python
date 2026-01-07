@@ -1,9 +1,12 @@
-import streamlit as st, sys, os 
+import streamlit as st, sys, os, re
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 import entry.Zoom_letter_for_illness as Zoom_letter_for_illness
 from shared import automatic_date
+from ui.components import nav_bar
 
-st.title("automatizador de archivos")
+nav_bar.nav()
+
+st.title("Carta de Zoom por motivo de enfermedad con Suplente")
 
 with st.form("formulario"):
     col1, col2 = st.columns(2)
@@ -19,21 +22,26 @@ with st.form("formulario"):
         relationship = st.text_input("Ingrese la Relacion que tiene con el Propietario: ")
         substitute_phone_number = st.text_input("Ingrese el Numero de Telefono del Suplente: ")
         addressee = st.text_input("Ingrese el Correo del Destinatario: ")
-        
+
+    full_fields = owner_full_name and document_number and tracking_number and phone and email and substitute_full_name and alternate_document_number and relationship and substitute_phone_number and addressee
+    
     save_data = st.form_submit_button("enviar datos")
 
 if save_data:
-    form = {
-        "nombre_completo_propietario" : owner_full_name,
-        "numero_de_documento" : document_number,
-        "numero_de_tracking" : tracking_number,
-        "telefono" : phone,
-        "email" : email,
-        "fecha" : automatic_date.auto_date(),
-        "nombre_completo_del_suplente" : substitute_full_name,
-        "numero_de_documento_del_suplente" : alternate_document_number,
-        "relacion" : relationship,
-        "telefono_del_suplente" : substitute_phone_number,
-        "destinatario" : addressee
-    }
-    Zoom_letter_for_illness.saveroom(form)
+    if not full_fields:
+        st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el formulario completo.")
+    else:
+        form = {
+            "nombre_completo_propietario" : owner_full_name,
+            "numero_de_documento" : document_number,
+            "numero_de_tracking" : tracking_number,
+            "telefono" : phone,
+            "email" : email,
+            "fecha" : automatic_date.auto_date(),
+            "nombre_completo_del_suplente" : substitute_full_name,
+            "numero_de_documento_del_suplente" : alternate_document_number,
+            "relacion" : relationship,
+            "telefono_del_suplente" : substitute_phone_number,
+            "destinatario" : addressee
+        }
+        Zoom_letter_for_illness.saveroom(form)
