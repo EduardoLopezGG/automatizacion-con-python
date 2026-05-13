@@ -2,9 +2,6 @@ import streamlit as st, sys, os, re
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 import entry.Zoom_letter_for_illness as Zoom_letter_for_illness
 from shared import automatic_date
-from ui.components import nav_bar
-
-nav_bar.nav()
 
 st.title("Carta de Zoom por motivo de enfermedad con Suplente")
 
@@ -29,7 +26,7 @@ with st.form("formulario"):
 
 if save_data:
     if not full_fields:
-        st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el formulario completo.")
+        st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el total del formulario.")
     else:
         form = {
             "nombre_completo_propietario" : owner_full_name,

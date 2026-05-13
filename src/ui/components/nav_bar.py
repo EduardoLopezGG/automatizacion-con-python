@@ -3,24 +3,20 @@ from streamlit_option_menu import option_menu
 
 def nav():
     selected = option_menu(
-        menu_title=None, # Título del menú (opcional)
-        options=["Inicio", "Proyectos Futuros", "Historial", "Contacto"], # Opciones
-        icons=["house", "book", "envelope"], # Iconos de bootstrap-icons
-        menu_icon="cast", 
-        default_index=0, 
+        menu_title=None,
+        options=list(paginas.keys()),
+        icons=["house", "book", "clock", "envelope"],
         orientation="horizontal",
+        # default_index=default_idx 
     )
 
-    # 2. Lógica para mostrar contenido
+    # 2. LÓGICA ANTIBUCLE: Solo cambia si el destino es distinto al actual
     if selected == "Inicio":
-        #st.title(f"Bienvenido a {selected}")
+        # Solo cambiamos si no estamos ya en el dashboard
+        # Nota: Ajusta la ruta a como la tengas en tu proyecto
+        st.switch_page("src/ui/dashboard.py") 
         pass
-    if selected == "Proyectos Futuros":
-        #st.title(f"Página de {selected}")
-        pass
-    if selected == "Contacto":
-        #st.title(f"Sección de {selected}")
-        pass
+        
     if selected == "Historial":
-        #st.title(f"Sección de {selected}")
-        pass
+        st.switch_page("src/ui/pages/career_change_letter_page.py")
+        

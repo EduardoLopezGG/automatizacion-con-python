@@ -1,7 +1,4 @@
 import streamlit as st
-from src.ui.components import nav_bar
-
-nav_bar.nav()
 
 st.title("Bienvenido a la Pagina Principal de Automatizaciones Secretariales!")
 

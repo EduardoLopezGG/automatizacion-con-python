@@ -2,7 +2,7 @@ from src.DB.init_db import start_db
 import streamlit as st
 
 def main():
-    st.set_page_config(page_title="Sistema IA", layout="wide")
+    st.set_page_config(layout="wide")
     # 1. ¡Aquí es donde ocurre la magia! 
     # Al llamar a esto, se crea el archivo y la tabla automáticamente si no están.
     start_db() 

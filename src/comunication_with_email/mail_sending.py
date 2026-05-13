@@ -42,7 +42,7 @@ def send(attached_file, holder, addressee):
         print(f"✅ Archivo adjuntado: {file_name}")
 
     context = sending_emails.ssl.create_default_context()
-
+    
     with sending_emails.smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as smtp:
         smtp.login(os.getenv("email_emisor"), os.getenv("contraseña"))
         smtp.sendmail(os.getenv("email_emisor"), recipient_email, em.as_string())
