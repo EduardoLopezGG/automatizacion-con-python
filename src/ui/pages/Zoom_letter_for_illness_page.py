@@ -9,25 +9,25 @@ with st.form("formulario", clear_on_submit=True):
     col1, col2 = st.columns(2)
     with col1:
         owner_full_name = st.text_input("Ingrese el Nombre Completo del Propietario: ")
-        document_number = st.text_input("Ingrese el Numero de la Cedula de Identidad: ")
-        tracking_number = st.text_input("Ingrese el Numero de Seguimiento del Paquete: ")
-        phone = st.text_input("Ingrese el Numero de Telefono: ")
+        document_number = st.number_input("Ingrese el Numero de la Cedula de Identidad: ", min_value=1)
+        tracking_number = st.number_input("Ingrese el Numero de Seguimiento del Paquete: ", min_value=1)
+        phone = st.number_input("Ingrese el Numero de Telefono: ", min_value=1)
         email = st.text_input("Ingrese el correo Electronico: ")
     with col2:
         substitute_full_name = st.text_input("Ingrese el Nombre Completo del Suplente: ")
-        alternate_document_number = st.text_input("Ingrese la Cedula de Identidad del Suplente: ")
+        alternate_document_number = st.number_input("Ingrese la Cedula de Identidad del Suplente: ", min_value=1)
         relationship = st.text_input("Ingrese la Relacion que tiene con el Propietario: ")
-        substitute_phone_number = st.text_input("Ingrese el Numero de Telefono del Suplente: ")
+        substitute_phone_number = st.number_input("Ingrese el Numero de Telefono del Suplente: ", min_value=1)
         addressee = st.text_input("Ingrese el Correo del Destinatario: ")
 
-    full_fields = owner_full_name and document_number and tracking_number and phone and email and substitute_full_name and alternate_document_number and relationship and substitute_phone_number and addressee
-    
+    full_fields = [owner_full_name, document_number, tracking_number, phone, email, substitute_full_name, alternate_document_number, relationship, substitute_phone_number, addressee]
     save_data = st.form_submit_button("Guardar Datos")
 
 if save_data:
-    if not full_fields:
+    if not all(full_fields):
         st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el total del formulario.")
     else:
+        st.info("Procesando la información... Por favor, espera un momento.")
         form = {
             "nombre_completo_propietario" : owner_full_name,
             "numero_de_documento" : document_number,

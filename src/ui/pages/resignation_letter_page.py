@@ -17,17 +17,17 @@ with st.form("formulario", clear_on_submit=True):
         authority = st.text_input("Ingrese el Nombre de la Autoridad: ")
         name_of_institution_or_company = st.text_input("Ingrese el Nombre de la Institucion o Compañia: ")
         current_personal_position = st.text_input("Ingrese el Cargo Actual del Trabajador: ")
-        worker_id = st.text_input("Ingrese el Numero de Cedula del Trabajador: ")
+        worker_id = st.number_input("Ingrese el Numero de Cedula del Trabajador: ", min_value=1)
 
-    full_fields = city and position_of_authority and abbreviation and worker_name and addressee and authority and name_of_institution_or_company and current_personal_position and worker_id
+    full_fields = [city, position_of_authority, abbreviation, worker_name, addressee, authority, name_of_institution_or_company, current_personal_position, worker_id]
 
     save_data = st.form_submit_button("Guardar Datos")
     
 if save_data:
-    if not full_fields:
+    if not all(full_fields):
         st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el total del formulario.")
     else:
-        st.success("Procesando...")
+        st.info("Procesando la información... Por favor, espera un momento.")
         form = {
             "fecha" : automatic_date.auto_date(),
             "ciudad" : city,

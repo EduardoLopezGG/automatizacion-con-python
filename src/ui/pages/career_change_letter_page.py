@@ -10,7 +10,7 @@ with st.form("formulario", clear_on_submit=True):
     with col1:
         city = st.text_input("Ingrese el Nombre de la Ciudad: ")
         current_career = st.text_input("Ingrese la Carrera Actual: ")
-        student_id = st.text_input("Ingrese el Numero de Cedula del Estudiante: ")
+        student_id = st.number_input("Ingrese el Numero de Cedula del Estudiante: ", min_value=1)
         argument = st.text_input("Ingrese la razon del cambio (me interesa mas por...): ")
     with col2:
         professional = st.text_input("Ingrese el Nombre y Profesion de la Autoridad: ")
@@ -18,15 +18,14 @@ with st.form("formulario", clear_on_submit=True):
         new_career = st.text_input("Ingrese la Carrera a la que Quiere Postular: ")
         addressee = st.text_input("Ingrese el Correo del Destinatario: ")
 
-    full_fields = city and current_career and student_id and argument and professional and student_name and new_career and addressee
-
+    full_fields = [city, current_career, student_id, argument, professional, student_name, new_career, addressee]
     save_data = st.form_submit_button("Guardar Datos")
 
 if save_data:
-    if not full_fields:
+    if not all(full_fields):
         st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el total del formulario.")
     else:
-        st.success("Procesando...")
+        st.info("Procesando la información... Por favor, espera un momento.")
         form = {
             "fecha" : automatic_date.auto_date(),
             "ciudad" : city,
