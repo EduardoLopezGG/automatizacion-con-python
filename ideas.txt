@@ -4,7 +4,7 @@ uno es la comunicacion con los emails. otro es para crear el documento pdf
 y asi
 para empezar vamos desde la ui
 
--cada que le de enter para que el trabajo se procese, los inputs se vacíen automaticamente
+-cada que le de enter para que el trabajo se procese, los inputs se vacíen automaticamente  LISTO  
 
 -que cuando se envíe el email, en la pagina principal se muestre "Se ha enviado perfectamente!"
 

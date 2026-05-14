@@ -5,7 +5,7 @@ from shared import automatic_date
 
 st.title("Carta de Zoom por motivo de enfermedad con Suplente")
 
-with st.form("formulario"):
+with st.form("formulario", clear_on_submit=True):
     col1, col2 = st.columns(2)
     with col1:
         owner_full_name = st.text_input("Ingrese el Nombre Completo del Propietario: ")
@@ -22,7 +22,7 @@ with st.form("formulario"):
 
     full_fields = owner_full_name and document_number and tracking_number and phone and email and substitute_full_name and alternate_document_number and relationship and substitute_phone_number and addressee
     
-    save_data = st.form_submit_button("enviar datos")
+    save_data = st.form_submit_button("Guardar Datos")
 
 if save_data:
     if not full_fields:

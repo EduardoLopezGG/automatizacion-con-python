@@ -5,7 +5,7 @@ from shared import automatic_date
 
 st.title("Carta de Renuncia")
 
-with st.form("formulario"):
+with st.form("formulario", clear_on_submit=True):
     col1, col2 = st.columns(2)
     with col1:
         city = st.text_input("Ingrese el Nombre de la Ciudad: ")
@@ -21,7 +21,7 @@ with st.form("formulario"):
 
     full_fields = city and position_of_authority and abbreviation and worker_name and addressee and authority and name_of_institution_or_company and current_personal_position and worker_id
 
-    save_data = st.form_submit_button("enviar datos")
+    save_data = st.form_submit_button("Guardar Datos")
     
 if save_data:
     if not full_fields:

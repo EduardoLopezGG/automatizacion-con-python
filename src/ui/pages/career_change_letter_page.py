@@ -5,7 +5,7 @@ from shared import automatic_date
 
 st.title("Carta de Cambio de Carrera")
 
-with st.form("formulario"):
+with st.form("formulario", clear_on_submit=True):
     col1, col2 = st.columns(2)
     with col1:
         city = st.text_input("Ingrese el Nombre de la Ciudad: ")
@@ -20,7 +20,7 @@ with st.form("formulario"):
 
     full_fields = city and current_career and student_id and argument and professional and student_name and new_career and addressee
 
-    save_data = st.form_submit_button("enviar datos")
+    save_data = st.form_submit_button("Guardar Datos")
 
 if save_data:
     if not full_fields:
