@@ -1,0 +1,23 @@
+dirijo el proyecto con una screaming arquitecture
+cada carpeta se prepara para una cosa en especifico
+uno es la comunicacion con los emails. otro es para crear el documento pdf
+y asi
+para empezar vamos desde la ui
+
+-cada que le de enter para que el trabajo se procese, los inputs se vacíen automaticamente
+
+-que cuando se envíe el email, en la pagina principal se muestre "Se ha enviado perfectamente!"
+
+-dar la opción de agregar un correo electronico nuevo a la lista de frecuentes con un apodo (opcional)
+
+-mostrar analiticas individuales de cada proceso automatizado, y uno general en la pagina principal (graficas de barras con el color verde principal)
+
+-mostrar la opción de ver un historial de trabajos con hora, fecha e informacion mas privada, con opciones para ver asc o desc
+
+-una opción para ver la estructura de la base de datos (descripción grafica)
+
+-crear widgets para las paginas individuales
+
+-traer datos de la DB e imprimirlas como PDF, de cierto producto, empleado o de estudiante
+
+-pasar los templates a la nube de google Docs y usarlos desde ahí
