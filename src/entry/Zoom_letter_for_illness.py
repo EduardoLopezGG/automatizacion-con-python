@@ -16,5 +16,4 @@ def saveroom(form):
     except Exception as e:
         print(f"Error al crear el archivo: {e}")
     finally:
-        # 3. Muy importante: liberar los recursos
         rendering_works.pythoncom.CoUninitialize()

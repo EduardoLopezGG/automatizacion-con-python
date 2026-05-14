@@ -6,7 +6,9 @@ para empezar vamos desde la ui
 
 -cada que le de enter para que el trabajo se procese, los inputs se vacíen automaticamente  LISTO  
 
--que cuando se envíe el email, en la pagina principal se muestre "Se ha enviado perfectamente!"
+-que cuando se envíe el email, en la pagina principal se muestre "Se ha enviado perfectamente!" LISTO
+
+-pasar los templates a la nube de google Docs y usarlos desde ahí
 
 -dar la opción de agregar un correo electronico nuevo a la lista de frecuentes con un apodo (opcional)
 
@@ -19,5 +21,3 @@ para empezar vamos desde la ui
 -crear widgets para las paginas individuales
 
 -traer datos de la DB e imprimirlas como PDF, de cierto producto, empleado o de estudiante
-
--pasar los templates a la nube de google Docs y usarlos desde ahí

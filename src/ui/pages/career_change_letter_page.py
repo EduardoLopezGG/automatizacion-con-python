@@ -19,13 +19,15 @@ with st.form("formulario", clear_on_submit=True):
         addressee = st.text_input("Ingrese el Correo del Destinatario: ")
 
     full_fields = [city, current_career, student_id, argument, professional, student_name, new_career, addressee]
+    
     save_data = st.form_submit_button("Guardar Datos")
 
 if save_data:
     if not all(full_fields):
         st.error("⚠️ Error: Todos los campos son obligatorios. Por favor, rellena el total del formulario.")
     else:
-        st.info("Procesando la información... Por favor, espera un momento.")
+        message = st.empty()
+        message.info("Procesando la información... Por favor, espera un momento.")
         form = {
             "fecha" : automatic_date.auto_date(),
             "ciudad" : city,
@@ -38,3 +40,5 @@ if save_data:
             "destinatario" : addressee
         }
         career_change_letter.saveroom(form)
+
+        message.success("✅ Carta creada exitosamente. Enviando por correo electrónico...")  
